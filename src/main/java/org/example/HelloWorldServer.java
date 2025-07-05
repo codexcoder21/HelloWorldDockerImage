@@ -54,11 +54,6 @@ public class HelloWorldServer {
 
         HelloWorldServer helloWorldServer = new HelloWorldServer();
         helloWorldServer.start(port);
-
-        try {
-            java.awt.Desktop.getDesktop().browse(new java.net.URI("http://localhost:" + port + "/"));
-        } catch (Exception e) {
-            System.out.println("Could not open browser: " + e.getMessage());
-        }
+        helloWorldServer.server.join();
     }
 }

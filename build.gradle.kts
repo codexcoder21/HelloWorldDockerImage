@@ -6,6 +6,11 @@ plugins {
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
 repositories {
     mavenCentral()
 }
@@ -20,6 +25,7 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("com.squareup.okhttp3:okhttp:4.12.0")
+    testImplementation("org.testcontainers:junit-jupiter:1.19.8")
 }
 
 tasks.test {
@@ -27,6 +33,8 @@ tasks.test {
     testLogging {
         events("passed", "skipped", "failed")
     }
+    systemProperties["org.slf4j.simpleLogger.defaultLogLevel"] = "debug"
+    systemProperties["org.testcontainers.logging.enabled"] = "true"
 }
 
 jib {
