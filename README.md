@@ -1,6 +1,6 @@
 # HelloWorldDockerImage
 
-This project builds a simple "Hello World" Java application and packages it as a Docker image using Jib.
+This project builds a simple "Hello World" Java application and packages it as a Docker image using Jib.  The project exists primarily to serve as a source of a simple test docker image that can be used by other projects (for example, for unit tests verifying various docker functionalities).
 
 ## Building the Docker Image
 
